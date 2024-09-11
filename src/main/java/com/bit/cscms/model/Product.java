@@ -1,7 +1,6 @@
 package com.bit.cscms.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,12 +11,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int product_id;
     private String product_name;
     private String product_description;
     private int product_price;
     private int product_image;
-    private int cat_id;
-    private int brand_id;
-    private int make_id;
+    @ManyToOne
+    @JoinColumn(name = "cat_id")
+    private Category category;
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
+    @ManyToOne
+    @JoinColumn(name = "make_id")
+    private Make make;
 }
