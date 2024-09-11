@@ -14,7 +14,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/getproduct")
+    @GetMapping("/getproduct/{productId}")
     public ProductDTO getProduct(@PathVariable int productId) {
         return productService.getProduct(productId);
     }
@@ -34,7 +34,7 @@ public class ProductController {
         return productService.updateProduct(productDTO);
     }
 
-    @DeleteMapping("/deleteproduct")
+    @DeleteMapping("/deleteproduct/{productId}")
     public String deleteProduct(@PathVariable int productId) {
         return productService.deleteProduct(productId);
     }
