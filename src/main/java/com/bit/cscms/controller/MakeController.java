@@ -36,7 +36,7 @@ public class MakeController {
         return makeService.updateMake(makeDTO);
     }
 
-    @DeleteMapping("/deletemake/make_id}")
+    @DeleteMapping("/deletemake/{make_id}")
     public String deleteCategory(@PathVariable int make_id){
         return makeService.deleteMake(make_id);
     }

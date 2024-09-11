@@ -1,12 +1,13 @@
 package com.bit.cscms.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Enabled
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
