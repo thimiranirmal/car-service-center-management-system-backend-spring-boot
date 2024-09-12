@@ -16,4 +16,6 @@ public class ProductDTO {
     private int cat_id;
     private int brand_id;
     private int make_id;
+
+
 }

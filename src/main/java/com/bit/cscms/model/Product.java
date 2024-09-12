@@ -16,7 +16,7 @@ public class Product {
     private String product_name;
     private String product_description;
     private int product_price;
-    private int product_image;
+    private String product_image;
     @ManyToOne
     @JoinColumn(name = "cat_id")
     private Category category;
@@ -26,4 +26,6 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "make_id")
     private Make make;
+
+
 }
