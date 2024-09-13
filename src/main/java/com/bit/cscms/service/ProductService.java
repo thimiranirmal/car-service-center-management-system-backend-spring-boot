@@ -39,7 +39,7 @@ public class ProductService {
 
     public List<ProductDTO> getAllProducts() {
         List<Product> products = productRepo.findAll();
-        return modelMapper.map(products, new TypeToken<List<ProductDTO>>(){}.getType());
+        return modelMapper.map(products, List.class);
     }
 
     public ProductDTO createProduct(ProductDTO productDTO) {

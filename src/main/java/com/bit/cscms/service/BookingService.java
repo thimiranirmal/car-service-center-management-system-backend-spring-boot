@@ -20,7 +20,7 @@ public class BookingService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public BookingDTO makeBooking(BookingDTO bookingDTO) {
+    public BookingDTO createBooking(BookingDTO bookingDTO) {
         Booking booking = modelMapper.map(bookingDTO, Booking.class);
         bookingRepo.save(booking);
         return modelMapper.map(bookingDTO, BookingDTO.class);

@@ -45,7 +45,7 @@ public class ServiceService {
 
     public List<ServiceDTO> getAllServices() {
         List<com.bit.cscms.model.Service> serviceList = serviceRepo.findAll();
-        return modelMapper.map(serviceList, new TypeToken<List<ServiceDTO>>() {}.getType());
+        return modelMapper.map(serviceList, List.class);
     }
 
     public com.bit.cscms.model.Service getServiceById(int id) {

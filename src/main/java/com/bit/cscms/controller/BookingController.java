@@ -9,15 +9,15 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value = "api/booking")
+@RequestMapping(value = "api/bookings")
 public class BookingController {
 
     @Autowired
     private BookingService bookingService;
 
     @PostMapping("/booking")
-    public BookingDTO makeBooking(BookingDTO bookingDTO) {
-        return bookingService.makeBooking(bookingDTO);
+    public BookingDTO createBooking(@RequestBody BookingDTO bookingDTO) {
+        return bookingService.createBooking(bookingDTO);
     }
 
     @GetMapping("/getallbookings")
