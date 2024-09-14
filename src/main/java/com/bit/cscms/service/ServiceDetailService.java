@@ -31,10 +31,8 @@ public class ServiceDetailService {
     private ModelMapper modelMapper;
 
     public List<Service_Detail> createServiceDetail(ServiceDetailDTO serviceDetailDTO) {
-        Service_Detail serviceDetail = modelMapper.map(serviceDetailDTO, Service_Detail.class);
 
         com.bit.cscms.model.Service service = serviceRepo.findById(serviceDetailDTO.getServiceId()).orElseThrow();
-
 
         List<Integer> serviceTypeIds = serviceDetailDTO.getServiceTypeIds();
         List<Service_Detail> serviceDetails = new ArrayList<>();

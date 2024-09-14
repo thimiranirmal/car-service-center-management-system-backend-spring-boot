@@ -1,6 +1,5 @@
 package com.bit.cscms.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,8 +9,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ServiceDetailDTO {
-    private int serviceDetailId;
+public class ServiceProductDetailsDTO {
+
+    private int serviceProductDetailId;
     private int serviceId;
-    private List<Integer> serviceTypeIds;
+    private List<Integer> productIds;
 }
