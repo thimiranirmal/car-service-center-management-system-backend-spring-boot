@@ -1,9 +1,6 @@
 package com.bit.cscms.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +12,10 @@ import lombok.NoArgsConstructor;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cat_id;
+    private Integer cat_id;
     private String cat_name;
     private String cat_desc;
+    @Lob
+    @Column(length = 1000000000)
+    private byte[] cat_img;
 }

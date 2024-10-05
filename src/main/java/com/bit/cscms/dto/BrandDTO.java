@@ -11,4 +11,5 @@ public class BrandDTO {
     private int brand_id;
     private String brand_name;
     private String brand_description;
+    private String brand_image;
 }

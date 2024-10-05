@@ -2,10 +2,7 @@ package com.bit.cscms.service;
 
 import com.bit.cscms.dto.ServiceDetailDTO;
 import com.bit.cscms.dto.ServiceProductDetailsDTO;
-import com.bit.cscms.model.Product;
-import com.bit.cscms.model.ServiceProductDetails;
-import com.bit.cscms.model.ServiceType;
-import com.bit.cscms.model.Service_Detail;
+import com.bit.cscms.model.*;
 import com.bit.cscms.repo.ProductRepo;
 import com.bit.cscms.repo.ServiceProductDetailRepo;
 import com.bit.cscms.repo.ServiceRepo;
@@ -37,14 +34,15 @@ public class ServiceProductDetailService {
 
         com.bit.cscms.model.Service service = serviceRepo.findById(serviceProductDetailsDTO.getServiceId()).orElseThrow();
 
-        List<Integer> productIds = serviceProductDetailsDTO.getProductIds();
+        List<ProductDetailsQty> productIds = serviceProductDetailsDTO.getProductIdWithQty();
         List<ServiceProductDetails> serviceProductDetails = new ArrayList<>();
 
-        for (Integer productId : productIds) {
-            Product product = productRepo.findById(productId).orElseThrow();
+        for (ProductDetailsQty productId : productIds) {
+            Product product = productRepo.findById(productId.getProductId()).orElseThrow();
             ServiceProductDetails serviceProductDetails1 = modelMapper.map(serviceProductDetailsDTO, ServiceProductDetails.class);
             serviceProductDetails1.setProduct(product);
             serviceProductDetails1.setService(service);
+            serviceProductDetails1.setQuantity(productId.getQty());
             serviceProductDetails.add(serviceProductDetailRepo.save(serviceProductDetails1));
         }
 

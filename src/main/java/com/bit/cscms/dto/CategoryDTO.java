@@ -12,5 +12,5 @@ public class CategoryDTO {
     private int cat_id;
     private String cat_name;
     private String cat_desc;
-
+    private String cat_img;
 }

@@ -21,8 +21,8 @@ public class Booking {
     private String vehicleModel;
     private String vehicleNo;
     private String vehicleManufacturedYear;
-    private Date bookingDate;
-    private Timestamp bookingTime;
+    private String bookingDate;
+    private String bookingTime;
     private String bookingStatus;
     private String message;
 

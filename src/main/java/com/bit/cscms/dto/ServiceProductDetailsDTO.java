@@ -1,5 +1,6 @@
 package com.bit.cscms.dto;
 
+import com.bit.cscms.model.ProductDetailsQty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,5 +14,5 @@ public class ServiceProductDetailsDTO {
 
     private int serviceProductDetailId;
     private int serviceId;
-    private List<Integer> productIds;
+    private List<ProductDetailsQty> productIdWithQty;
 }

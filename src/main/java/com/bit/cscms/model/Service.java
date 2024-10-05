@@ -16,7 +16,7 @@ public class Service {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int service_id;
     private String service_status;
-    private Date assign_date;
+    private String assign_date;
     private String comment;
     private int emp_id;
     @OneToOne

@@ -16,7 +16,9 @@ public class Product {
     private String product_name;
     private String product_description;
     private int product_price;
-    private String product_image;
+    @Lob
+    @Column(length = 1000000000)
+    private byte[] product_image;
     @ManyToOne
     @JoinColumn(name = "cat_id")
     private Category category;

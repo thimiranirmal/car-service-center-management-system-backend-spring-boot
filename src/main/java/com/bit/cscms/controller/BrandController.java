@@ -3,8 +3,11 @@ package com.bit.cscms.controller;
 import com.bit.cscms.dto.BrandDTO;
 import com.bit.cscms.model.Brand;
 import com.bit.cscms.service.BrandService;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -26,9 +29,10 @@ public class BrandController {
         return brandService.getAllBrands();
     }
 
-    @PostMapping("/addbrand")
-    public BrandDTO addBrand(@RequestBody BrandDTO brandDTO) {
-        return brandService.saveBrand(brandDTO);
+
+    @PostMapping(value = "/addbrand", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public BrandDTO addBrand(@ModelAttribute BrandDTO brandDTO, @RequestParam("image") MultipartFile image) {
+        return brandService.saveBrand(brandDTO,image);
     }
 
     @PutMapping("/updatebrand")

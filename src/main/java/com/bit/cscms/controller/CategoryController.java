@@ -3,7 +3,9 @@ package com.bit.cscms.controller;
 import com.bit.cscms.dto.CategoryDTO;
 import com.bit.cscms.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -25,9 +27,9 @@ public class CategoryController {
         return categoryService.getAllCategory();
     }
 
-    @PostMapping("/addcategory")
-    public CategoryDTO addCategory(@RequestBody CategoryDTO categoryDTO){
-        return categoryService.saveCategory(categoryDTO);
+    @PostMapping(value = "/addcategory", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public CategoryDTO addCategory(@ModelAttribute CategoryDTO categoryDTO, @RequestParam("image") MultipartFile image){
+        return categoryService.saveCategory(categoryDTO, image);
     }
 
     @PutMapping("/updatecategory")

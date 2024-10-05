@@ -1,9 +1,6 @@
 package com.bit.cscms.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,4 +16,7 @@ public class Make {
     private int make_id;
     private String make_name;
     private String make_description;
+    @Lob
+    @Column(length = 1000000000)
+    private byte[] make_img;
 }

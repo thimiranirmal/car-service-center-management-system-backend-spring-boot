@@ -11,4 +11,5 @@ public class MakeDTO {
     private int make_id;
     private String make_name;
     private String make_description;
+    private String make_img;
 }

@@ -1,9 +1,6 @@
 package com.bit.cscms.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +15,7 @@ public class Brand {
     private int brand_id;
     private String brand_name;
     private String brand_description;
+    @Lob
+    @Column(length = 1000000000)
+    private byte[] brand_img;
 }

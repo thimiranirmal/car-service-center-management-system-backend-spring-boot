@@ -5,7 +5,9 @@ import com.bit.cscms.dto.MakeDTO;
 import com.bit.cscms.service.CategoryService;
 import com.bit.cscms.service.MakeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -26,9 +28,9 @@ public class MakeController {
         return makeService.getAllMake();
     }
 
-    @PostMapping("/addmake")
-    public MakeDTO addCategory(@RequestBody MakeDTO makeDTO){
-        return makeService.addMake(makeDTO);
+    @PostMapping(value = "/addmake", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public MakeDTO addCategory(@ModelAttribute MakeDTO makeDTO, @RequestParam("image") MultipartFile image){
+        return makeService.addMake(makeDTO,image);
     }
 
     @PutMapping("/updatemake")
