@@ -1,18 +1,13 @@
-package com.bit.cscms.model;
+package com.bit.cscms.dto;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Value;
 
-@Entity
-@AllArgsConstructor
 @Data
 @NoArgsConstructor
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@AllArgsConstructor
+public class UserDTO {
     private int user_id;
     private String email;
     private String password;
@@ -22,12 +17,4 @@ public class User {
     private String phone_number;
     private String address;
     private String user_role;
-
-    @PrePersist
-    public void setUserRole() {
-        if (user_role == null) {
-            user_role = "customer";
-        }
-    }
-
 }
